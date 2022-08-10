@@ -8,13 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		381320F628A40B7A00FAF3B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381320F528A40B7A00FAF3B0 /* AppDelegate.swift */; };
-		381320F828A40B7A00FAF3B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381320F728A40B7A00FAF3B0 /* SceneDelegate.swift */; };
 		381320FA28A40B7A00FAF3B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381320F928A40B7A00FAF3B0 /* ViewController.swift */; };
 		381320FD28A40B7A00FAF3B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 381320FB28A40B7A00FAF3B0 /* Main.storyboard */; };
 		381320FF28A40B7D00FAF3B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 381320FE28A40B7D00FAF3B0 /* Assets.xcassets */; };
 		3813210228A40B7D00FAF3B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3813210028A40B7D00FAF3B0 /* LaunchScreen.storyboard */; };
 		3813210D28A40B7D00FAF3B0 /* AutoTuneSamplerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3813210C28A40B7D00FAF3B0 /* AutoTuneSamplerTests.swift */; };
 		3813211828A40B7E00FAF3B0 /* AutoTuneSamplerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3813211728A40B7E00FAF3B0 /* AutoTuneSamplerUITests.swift */; };
+		3813212F28A40C9400FAF3B0 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3813212E28A40C9400FAF3B0 /* UIButton+Extensions.swift */; };
+		3813213428A40CA500FAF3B0 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3813213328A40CA500FAF3B0 /* UILabel+Extensions.swift */; };
+		3813213928A40EA600FAF3B0 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3813213828A40EA600FAF3B0 /* UITextField+Extensions.swift */; };
+		3813214328A4118700FAF3B0 /* ViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3813214228A4118700FAF3B0 /* ViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +40,6 @@
 /* Begin PBXFileReference section */
 		381320F228A40B7A00FAF3B0 /* AutoTuneSampler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoTuneSampler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		381320F528A40B7A00FAF3B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		381320F728A40B7A00FAF3B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		381320F928A40B7A00FAF3B0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		381320FC28A40B7A00FAF3B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		381320FE28A40B7D00FAF3B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +51,10 @@
 		3813211328A40B7E00FAF3B0 /* AutoTuneSamplerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutoTuneSamplerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3813211728A40B7E00FAF3B0 /* AutoTuneSamplerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoTuneSamplerUITests.swift; sourceTree = "<group>"; };
 		3813211928A40B7E00FAF3B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3813212E28A40C9400FAF3B0 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
+		3813213328A40CA500FAF3B0 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
+		3813213828A40EA600FAF3B0 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		3813214228A4118700FAF3B0 /* ViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +105,8 @@
 		381320F428A40B7A00FAF3B0 /* AutoTuneSampler */ = {
 			isa = PBXGroup;
 			children = (
-				381320F528A40B7A00FAF3B0 /* AppDelegate.swift */,
-				381320F728A40B7A00FAF3B0 /* SceneDelegate.swift */,
-				381320F928A40B7A00FAF3B0 /* ViewController.swift */,
+				3813213E28A40F8400FAF3B0 /* View Controllers */,
+				3813213D28A40F3C00FAF3B0 /* Extensions */,
 				381320FB28A40B7A00FAF3B0 /* Main.storyboard */,
 				381320FE28A40B7D00FAF3B0 /* Assets.xcassets */,
 				3813210028A40B7D00FAF3B0 /* LaunchScreen.storyboard */,
@@ -126,6 +131,26 @@
 				3813211928A40B7E00FAF3B0 /* Info.plist */,
 			);
 			path = AutoTuneSamplerUITests;
+			sourceTree = "<group>";
+		};
+		3813213D28A40F3C00FAF3B0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3813214228A4118700FAF3B0 /* ViewController+Extensions.swift */,
+				3813212E28A40C9400FAF3B0 /* UIButton+Extensions.swift */,
+				3813213328A40CA500FAF3B0 /* UILabel+Extensions.swift */,
+				3813213828A40EA600FAF3B0 /* UITextField+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3813213E28A40F8400FAF3B0 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				381320F528A40B7A00FAF3B0 /* AppDelegate.swift */,
+				381320F928A40B7A00FAF3B0 /* ViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +283,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3813213428A40CA500FAF3B0 /* UILabel+Extensions.swift in Sources */,
 				381320FA28A40B7A00FAF3B0 /* ViewController.swift in Sources */,
+				3813212F28A40C9400FAF3B0 /* UIButton+Extensions.swift in Sources */,
+				3813213928A40EA600FAF3B0 /* UITextField+Extensions.swift in Sources */,
+				3813214328A4118700FAF3B0 /* ViewController+Extensions.swift in Sources */,
 				381320F628A40B7A00FAF3B0 /* AppDelegate.swift in Sources */,
-				381320F828A40B7A00FAF3B0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,7 +474,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.flowtinc.AutoTuneSampler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -465,7 +493,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.flowtinc.AutoTuneSampler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
