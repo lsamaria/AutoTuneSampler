@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,11 @@
 		3813213428A40CA500FAF3B0 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3813213328A40CA500FAF3B0 /* UILabel+Extensions.swift */; };
 		3813213928A40EA600FAF3B0 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3813213828A40EA600FAF3B0 /* UITextField+Extensions.swift */; };
 		3813214328A4118700FAF3B0 /* ViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3813214228A4118700FAF3B0 /* ViewController+Extensions.swift */; };
+		3813220028A471C500FAF3B0 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 381321FF28A471C500FAF3B0 /* AudioKit */; };
+		3813221128A47F8700FAF3B0 /* female-voice-3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3813221028A47F8700FAF3B0 /* female-voice-3.wav */; };
+		3813223A28A4B28A00FAF3B0 /* male-voice-1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3813223828A4B28900FAF3B0 /* male-voice-1.wav */; };
+		3813224728A4B6F700FAF3B0 /* female-voice-2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3813224528A4B6F500FAF3B0 /* female-voice-2.wav */; };
+		3813225028A4B8D500FAF3B0 /* female-voice-1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3813224F28A4B8D400FAF3B0 /* female-voice-1.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +60,10 @@
 		3813213328A40CA500FAF3B0 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		3813213828A40EA600FAF3B0 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		3813214228A4118700FAF3B0 /* ViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extensions.swift"; sourceTree = "<group>"; };
+		3813221028A47F8700FAF3B0 /* female-voice-3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "female-voice-3.wav"; sourceTree = "<group>"; };
+		3813223828A4B28900FAF3B0 /* male-voice-1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "male-voice-1.wav"; sourceTree = "<group>"; };
+		3813224528A4B6F500FAF3B0 /* female-voice-2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "female-voice-2.wav"; sourceTree = "<group>"; };
+		3813224F28A4B8D400FAF3B0 /* female-voice-1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "female-voice-1.wav"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3813220028A471C500FAF3B0 /* AudioKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +115,7 @@
 		381320F428A40B7A00FAF3B0 /* AutoTuneSampler */ = {
 			isa = PBXGroup;
 			children = (
+				3813223428A4953E00FAF3B0 /* Voice_Files */,
 				3813213E28A40F8400FAF3B0 /* View Controllers */,
 				3813213D28A40F3C00FAF3B0 /* Extensions */,
 				381320FB28A40B7A00FAF3B0 /* Main.storyboard */,
@@ -153,6 +164,17 @@
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
+		3813223428A4953E00FAF3B0 /* Voice_Files */ = {
+			isa = PBXGroup;
+			children = (
+				3813223828A4B28900FAF3B0 /* male-voice-1.wav */,
+				3813224F28A4B8D400FAF3B0 /* female-voice-1.wav */,
+				3813224528A4B6F500FAF3B0 /* female-voice-2.wav */,
+				3813221028A47F8700FAF3B0 /* female-voice-3.wav */,
+			);
+			path = Voice_Files;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -169,6 +191,9 @@
 			dependencies = (
 			);
 			name = AutoTuneSampler;
+			packageProductDependencies = (
+				381321FF28A471C500FAF3B0 /* AudioKit */,
+			);
 			productName = AutoTuneSampler;
 			productReference = 381320F228A40B7A00FAF3B0 /* AutoTuneSampler.app */;
 			productType = "com.apple.product-type.application";
@@ -240,6 +265,9 @@
 				Base,
 			);
 			mainGroup = 381320E928A40B7A00FAF3B0;
+			packageReferences = (
+				381321FE28A471C500FAF3B0 /* XCRemoteSwiftPackageReference "AudioKit" */,
+			);
 			productRefGroup = 381320F328A40B7A00FAF3B0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -258,7 +286,11 @@
 			files = (
 				3813210228A40B7D00FAF3B0 /* LaunchScreen.storyboard in Resources */,
 				381320FF28A40B7D00FAF3B0 /* Assets.xcassets in Resources */,
+				3813225028A4B8D500FAF3B0 /* female-voice-1.wav in Resources */,
+				3813224728A4B6F700FAF3B0 /* female-voice-2.wav in Resources */,
+				3813223A28A4B28A00FAF3B0 /* male-voice-1.wav in Resources */,
 				381320FD28A40B7A00FAF3B0 /* Main.storyboard in Resources */,
+				3813221128A47F8700FAF3B0 /* female-voice-3.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,6 +653,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		381321FE28A471C500FAF3B0 /* XCRemoteSwiftPackageReference "AudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		381321FF28A471C500FAF3B0 /* AudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 381321FE28A471C500FAF3B0 /* XCRemoteSwiftPackageReference "AudioKit" */;
+			productName = AudioKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 381320EA28A40B7A00FAF3B0 /* Project object */;
 }

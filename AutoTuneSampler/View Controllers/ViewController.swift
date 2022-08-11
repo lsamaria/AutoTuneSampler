@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import AudioKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -16,13 +18,13 @@ class ViewController: UIViewController {
     }()
     
     public lazy var femaleVoiceButton: UIButton = {
-        let button = UIButton.createButton(title: "Female Voice", bgColor: UIColor.purple)
+        let button = UIButton.createButton(title: "Female Voice", bgColor: UIColor.purple, addBorder: true)
         button.addTarget(self, action: #selector(femaleVoiceButtonTapped), for: .touchUpInside)
         return button
     }()
     
     public lazy var maleVoiceButton: UIButton = {
-        let button = UIButton.createButton(title: "Male Voice", bgColor: UIColor.systemTeal)
+        let button = UIButton.createButton(title: "Male Voice", bgColor: UIColor.systemTeal, addBorder: true)
         button.addTarget(self, action: #selector(maleVoiceButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -55,24 +57,28 @@ class ViewController: UIViewController {
     }()
     
     public lazy var playButton: UIButton = {
-        let button = UIButton.createButton(title: "Play", bgColor: UIColor.blue)
+        let button = UIButton.createButton(title: "Play Audio", bgColor: UIColor.blue)
         button.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
         return button
     }()
     
     public lazy var stopButton: UIButton = {
-        let button = UIButton.createButton(title: "Stop", bgColor: UIColor.red)
+        let button = UIButton.createButton(title: "Stop Audio", bgColor: UIColor.red)
         button.addTarget(self, action: #selector(stopButtonTapped), for: .touchUpInside)
         return button
     }()
     
     // MARK: - Ivars
-    public var voiceFileName: String?
+    public var femaleOrMaleFileUrl: URL?
     
-    private var isPlayerPlaying = false
+    private let engine = AudioKit.AudioEngine()
+    
+    private var player: AudioPlayer?
     
     private var pitch: Float = 0
     private var shift: Float = 0
+    
+    private var isPlayerPlaying = false
     
     // MARK: - View Controller Lifecycle
     override func viewDidLoad() {
@@ -87,24 +93,51 @@ class ViewController: UIViewController {
     }
 }
 
-// MARK: - Play AKAudioPlayer
+// MARK: - Play AudioPlayer
 extension ViewController {
     
     private func playAudioPlayer() {
         
-        if isPlayerPlaying { return }
-        
-        guard let voiceFileName = voiceFileName else {
+        guard let fileUrl = femaleOrMaleFileUrl else {
             print("Voice File is Nil")
             return
+        }
+        
+        do {
+            
+            let file = try AVAudioFile(forReading: fileUrl)
+            
+            player = AudioPlayer(file: file)
+            player?.isLooping = true
+            
+            let timePitch = TimePitch(player!)
+            timePitch.pitch = pitch
+            engine.output = timePitch
+            
+            /*
+            let pitchShifter = AKPitchShifter(player)
+            pitchShifter.shift = shift
+            engine.output = pitchShifter
+            */
+            
+            try engine.start()
+            
+            player?.play()
+            
+            isPlayerPlaying = true
+
+        } catch {
+            print("catch-error", error)
         }
     }
 }
 
-// MARK: - Stop AKAudioPlayer
+// MARK: - Stop AudioPlayer
 extension ViewController {
     
     private func stopAudioPlayer() {
+        
+        player?.stop()
         
         isPlayerPlaying = false
     }
@@ -113,17 +146,22 @@ extension ViewController {
 // MARK: - Button Target Actions
 extension ViewController {
     
-    @objc private func maleVoiceButtonTapped() {
+    @objc private func femaleVoiceButtonTapped() {
         
         useFemaleVoice()
     }
     
-    @objc private func femaleVoiceButtonTapped() {
+    @objc private func maleVoiceButtonTapped() {
         
         useMaleVoice()
     }
     
     @objc private func playButtonTapped() {
+        
+        if isPlayerPlaying {
+            stopButton.shakeUsingBasicAnimaion(shakeCount: 1.5)
+            return
+        }
         
         playAudioPlayer()
     }
@@ -138,9 +176,12 @@ extension ViewController {
 extension ViewController: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        
-        if isPlayerPlaying { return false }
-        
+        /*
+        if isPlayerPlaying {
+            stopButton.shakeUsingBasicAnimaion(shakeCount: 1.5)
+            return false
+        }
+        */
         return true
     }
     

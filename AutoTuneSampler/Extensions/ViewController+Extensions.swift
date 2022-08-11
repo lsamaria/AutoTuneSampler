@@ -12,16 +12,22 @@ extension ViewController {
     
     public func useFemaleVoice() {
         
-        guard let path = Bundle.main.path(forResource: "female-voice", ofType: "mp3") else { return }
+        guard let path = Bundle.main.path(forResource: "female-voice-1", ofType: "wav") else { return }
         let femaleVoiceUrl = URL(fileURLWithPath: path)
-        voiceFileName = femaleVoiceUrl.absoluteString
+        femaleOrMaleFileUrl = femaleVoiceUrl
+        
+        femaleVoiceButton.layer.borderColor = UIColor.orange.cgColor
+        maleVoiceButton.layer.borderColor = UIColor.clear.cgColor
     }
     
     public func useMaleVoice() {
         
-        guard let path = Bundle.main.path(forResource: "male-voice", ofType: "mp3") else { return }
+        guard let path = Bundle.main.path(forResource: "male-voice-1", ofType: "wav") else { return }
         let maleVoiceUrl = URL(fileURLWithPath: path)
-        voiceFileName = maleVoiceUrl.absoluteString
+        femaleOrMaleFileUrl = maleVoiceUrl
+        
+        femaleVoiceButton.layer.borderColor = UIColor.clear.cgColor
+        maleVoiceButton.layer.borderColor = UIColor.orange.cgColor
     }
 }
 
