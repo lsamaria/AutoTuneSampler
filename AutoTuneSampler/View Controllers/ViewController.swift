@@ -7,6 +7,7 @@
 
 import UIKit
 import AudioKit
+import SoundpipeAudioKit
 import AVFoundation
 
 class ViewController: UIViewController {
@@ -114,11 +115,9 @@ extension ViewController {
             timePitch.pitch = pitch
             engine.output = timePitch
             
-            /*
-            let pitchShifter = AKPitchShifter(player)
+            let pitchShifter = PitchShifter(player!)
             pitchShifter.shift = shift
             engine.output = pitchShifter
-            */
             
             try engine.start()
             
@@ -138,6 +137,8 @@ extension ViewController {
     private func stopAudioPlayer() {
         
         player?.stop()
+        
+        engine.stop()
         
         isPlayerPlaying = false
     }

@@ -23,6 +23,7 @@
 		3813223A28A4B28A00FAF3B0 /* male-voice-1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3813223828A4B28900FAF3B0 /* male-voice-1.wav */; };
 		3813224728A4B6F700FAF3B0 /* female-voice-2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3813224528A4B6F500FAF3B0 /* female-voice-2.wav */; };
 		3813225028A4B8D500FAF3B0 /* female-voice-1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3813224F28A4B8D400FAF3B0 /* female-voice-1.wav */; };
+		B68FC73228A5DFFD0019E049 /* SoundpipeAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = B68FC73128A5DFFD0019E049 /* SoundpipeAudioKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B68FC73228A5DFFD0019E049 /* SoundpipeAudioKit in Frameworks */,
 				3813220028A471C500FAF3B0 /* AudioKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,7 +117,7 @@
 		381320F428A40B7A00FAF3B0 /* AutoTuneSampler */ = {
 			isa = PBXGroup;
 			children = (
-				3813223428A4953E00FAF3B0 /* Voice_Files */,
+				3813223428A4953E00FAF3B0 /* Sound_Files */,
 				3813213E28A40F8400FAF3B0 /* View Controllers */,
 				3813213D28A40F3C00FAF3B0 /* Extensions */,
 				381320FB28A40B7A00FAF3B0 /* Main.storyboard */,
@@ -164,7 +166,7 @@
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
-		3813223428A4953E00FAF3B0 /* Voice_Files */ = {
+		3813223428A4953E00FAF3B0 /* Sound_Files */ = {
 			isa = PBXGroup;
 			children = (
 				3813223828A4B28900FAF3B0 /* male-voice-1.wav */,
@@ -172,7 +174,7 @@
 				3813224528A4B6F500FAF3B0 /* female-voice-2.wav */,
 				3813221028A47F8700FAF3B0 /* female-voice-3.wav */,
 			);
-			path = Voice_Files;
+			path = Sound_Files;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +195,7 @@
 			name = AutoTuneSampler;
 			packageProductDependencies = (
 				381321FF28A471C500FAF3B0 /* AudioKit */,
+				B68FC73128A5DFFD0019E049 /* SoundpipeAudioKit */,
 			);
 			productName = AutoTuneSampler;
 			productReference = 381320F228A40B7A00FAF3B0 /* AutoTuneSampler.app */;
@@ -267,6 +270,7 @@
 			mainGroup = 381320E928A40B7A00FAF3B0;
 			packageReferences = (
 				381321FE28A471C500FAF3B0 /* XCRemoteSwiftPackageReference "AudioKit" */,
+				B68FC73028A5DFFD0019E049 /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */,
 			);
 			productRefGroup = 381320F328A40B7A00FAF3B0 /* Products */;
 			projectDirPath = "";
@@ -663,6 +667,14 @@
 				minimumVersion = 5.1.0;
 			};
 		};
+		B68FC73028A5DFFD0019E049 /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/SoundpipeAudioKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -670,6 +682,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 381321FE28A471C500FAF3B0 /* XCRemoteSwiftPackageReference "AudioKit" */;
 			productName = AudioKit;
+		};
+		B68FC73128A5DFFD0019E049 /* SoundpipeAudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B68FC73028A5DFFD0019E049 /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */;
+			productName = SoundpipeAudioKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -10,22 +10,22 @@
 
 -#2 enter a pitch value for TimePitch.pitch (default is 0).
 
--#3 enter a shift value for AKPitchShifter.shift (default is 0). *** THIS DOESN't WORK *** The problem is AKPitchShifter doesn't show up in AudioKit v5.4.4. I didn't see it in the documentation either: https://audiokit.io/documentation/audiokit
+-#3 enter a shift value for PitchShifter.shift (default is 0).
+
+After you enter a pitch and/or shift value, when you press the Play Audio button, those values will be applied to the audio file that will start playing
 
 -#4 press the Play Audio button to play the audio. Press the Stop Audio button to stop the audio. After you stop, you can press Play Audio to restart the audio over.
 
-## AudioKit Issue
-
-- AKPitchShifter doesn't show up in AudioKit v5.4.4. AKPitchShifter is commented out on lines 118-120 in the playAudioPlayer() function in the ViewController file
-
 ## Code
 
-- The only code that uses AudioKit is the playAudioPlayer() function on line 99 and the stopAudioFunction on line 138 in the ViewController file
+- The only code that uses AudioKit is the playAudioPlayer() function on line 100 and the stopAudio() function on line 137 in the ViewController file
 
-## Voices
+- This app is entirely programmatic and doesn't use Storyboard
+
+## Sounds
 
 - The app currently uses female-voice-1.wav and male-voice-1.wav.
 
-- There are 2 more female voice files in the Voice_Files folder named female-voice-2.wav and female-voice-2.wav
+- There are 2 more female voice files in the Sound_Files folder named female-voice-2.wav and female-voice-2.wav
 
 - If you want to try a different female audio file the line to switch in ViewController+Extensions file on line 15
