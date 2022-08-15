@@ -6,12 +6,11 @@
 //
 
 import UIKit
-import AudioKit
-import SoundpipeAudioKit
+
 import AVFoundation
 
 class ViewController: UIViewController {
-    
+    var conductor = Conductor()
     // MARK: - UIElements
     public lazy var voiceSelectionLabel: UILabel = {
         let label = UILabel.createLabel(text: "#1 - Select Voice")
@@ -68,18 +67,7 @@ class ViewController: UIViewController {
         button.addTarget(self, action: #selector(stopButtonTapped), for: .touchUpInside)
         return button
     }()
-    
-    // MARK: - Ivars
-    public var femaleOrMaleFileUrl: URL?
-    
-    private let engine = AudioKit.AudioEngine()
-    
-    private var player: AudioPlayer?
-    
-    private var pitch: Float = 0
-    private var shift: Float = 0
-    
-    private var isPlayerPlaying = false
+
     
     // MARK: - View Controller Lifecycle
     override func viewDidLoad() {
@@ -91,56 +79,6 @@ class ViewController: UIViewController {
         setupUILayout()
         
         addDismissKeyboardTapGesture()
-    }
-}
-
-// MARK: - Play AudioPlayer
-extension ViewController {
-    
-    private func playAudioPlayer() {
-        
-        guard let fileUrl = femaleOrMaleFileUrl else {
-            print("Voice File is Nil")
-            return
-        }
-        
-        do {
-            
-            let file = try AVAudioFile(forReading: fileUrl)
-            
-            player = AudioPlayer(file: file)
-            player?.isLooping = true
-            
-            let timePitch = TimePitch(player!)
-            timePitch.pitch = pitch
-            engine.output = timePitch
-            
-            let pitchShifter = PitchShifter(player!)
-            pitchShifter.shift = shift
-            engine.output = pitchShifter
-            
-            try engine.start()
-            
-            player?.play()
-            
-            isPlayerPlaying = true
-
-        } catch {
-            print("catch-error", error)
-        }
-    }
-}
-
-// MARK: - Stop AudioPlayer
-extension ViewController {
-    
-    private func stopAudioPlayer() {
-        
-        player?.stop()
-        
-        engine.stop()
-        
-        isPlayerPlaying = false
     }
 }
 
@@ -159,17 +97,17 @@ extension ViewController {
     
     @objc private func playButtonTapped() {
         
-        if isPlayerPlaying {
+        if conductor.isPlayerPlaying {
             stopButton.shakeUsingBasicAnimaion(shakeCount: 1.5)
             return
         }
         
-        playAudioPlayer()
+        conductor.playAudioPlayer()
     }
     
     @objc private func stopButtonTapped() {
         
-        stopAudioPlayer()
+        conductor.stopAudioPlayer()
     }
 }
 
@@ -191,25 +129,25 @@ extension ViewController: UITextFieldDelegate {
         if textField == pitchTextField {
             
             if textField.text == "" {
-                pitch = 0
+                conductor.pitch = 0
                 return
             }
             
             guard let text = textField.text, let safeText = Float(text) else { return }
             
-            pitch = safeText
+            conductor.pitch = safeText
         }
         
         if textField == shiftTextField {
             
             if textField.text == "" {
-                shift = 0
+                conductor.shift = 0
                 return
             }
             
             guard let text = textField.text, let safeText = Float(text) else { return }
             
-            shift = safeText
+            conductor.shift = safeText
         }
     }
 }
