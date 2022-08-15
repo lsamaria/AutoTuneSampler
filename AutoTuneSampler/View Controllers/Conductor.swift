@@ -13,7 +13,7 @@ class Conductor {
 
     var pitch: Float = 0 {
         didSet {
-            timePitch.pitch = pitch
+            timePitch.pitch = pitch * 100
         }
     }
     var shift: Float = 0 {
@@ -54,17 +54,17 @@ class Conductor {
             return
         }
         do {
-            try player?.load(url: fileUrl)
+            try player.load(url: fileUrl)
         } catch {
             fatalError()
         }
-        player?.play()
+        player.play()
         isPlayerPlaying = true
     }
 
     func stopAudioPlayer() {
         print("stop \(femaleOrMaleFileUrl)")
-        player?.stop()
+        player.stop()
 
         isPlayerPlaying = false
     }
