@@ -14,7 +14,7 @@ extension ViewController {
         
         guard let path = Bundle.main.path(forResource: "female-voice-1", ofType: "wav") else { return }
         let femaleVoiceUrl = URL(fileURLWithPath: path)
-        femaleOrMaleFileUrl = femaleVoiceUrl
+        conductor.femaleOrMaleFileUrl = femaleVoiceUrl
         
         femaleVoiceButton.layer.borderColor = UIColor.orange.cgColor
         maleVoiceButton.layer.borderColor = UIColor.clear.cgColor
@@ -24,7 +24,7 @@ extension ViewController {
         
         guard let path = Bundle.main.path(forResource: "male-voice-1", ofType: "wav") else { return }
         let maleVoiceUrl = URL(fileURLWithPath: path)
-        femaleOrMaleFileUrl = maleVoiceUrl
+        conductor.femaleOrMaleFileUrl = maleVoiceUrl
         
         femaleVoiceButton.layer.borderColor = UIColor.clear.cgColor
         maleVoiceButton.layer.borderColor = UIColor.orange.cgColor
