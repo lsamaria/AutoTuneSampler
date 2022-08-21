@@ -67,7 +67,6 @@ class ViewController: UIViewController {
         button.addTarget(self, action: #selector(stopButtonTapped), for: .touchUpInside)
         return button
     }()
-
     
     // MARK: - View Controller Lifecycle
     override func viewDidLoad() {
@@ -116,7 +115,7 @@ extension ViewController: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         /*
-        if isPlayerPlaying {
+        if conductor.isPlayerPlaying {
             stopButton.shakeUsingBasicAnimaion(shakeCount: 1.5)
             return false
         }
